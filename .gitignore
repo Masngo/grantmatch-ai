@@ -1,12 +1,7 @@
-# Ignore secrets
 .env
 .env.local
-
-# Ignore dependencies and build output
 node_modules/
 .next/
 dist/
-
-# Ignore IDE files
 .vscode/
 .idea/
