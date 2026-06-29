@@ -1,12 +1,16 @@
+<<<<<<< HEAD
 generator client {
   provider = "prisma-client-js"
 }
 
+=======
+>>>>>>> cae2a4fb371f2dde3dc98b251c4863bacfa40de0
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+<<<<<<< HEAD
 model Grant {
   id          String   @id @default(uuid())
   title       String
@@ -14,3 +18,35 @@ model Grant {
   amount      Float
   deadline    DateTime
 }
+=======
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  country   String
+  industry  String
+  interests String[]
+  orders    Order[]
+}
+
+model Listing {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  price       Float
+  category    String
+  createdAt   DateTime @default(now())
+  imageUrl    String
+}
+
+model Order {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  status    String
+  updatedAt DateTime @updatedAt
+}
+>>>>>>> cae2a4fb371f2dde3dc98b251c4863bacfa40de0
